@@ -1,0 +1,102 @@
+
+
+<odoo>
+<data>
+
+
+
+
+
+<template id="doctor_report_detail">
+     <t t-foreach="docs" t-as="o">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                <div class="page">
+
+              <h1>doctor  details report</h1>
+            
+                        <h2>
+                            <strong>doctor name:</strong>
+                            <span t-field="o.name"/>
+
+                        </h2>
+
+                         <h2>
+                            <strong>doctor specialization :</strong>
+                            <span t-field="o.specialization"/>
+                        </h2>
+                        <h2>
+                            <strong>doctor gender :</strong>
+                            <span t-field="o.gender"/>
+                        </h2>
+
+                        <h2>
+                            <strong>doctor id :</strong>
+                            <span t-field="o.doctor_id"/>
+                        </h2>
+
+                       
+    
+ 
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>docto's appointments</th>
+                                </tr>
+                                <tr>
+                                    <th>appointment date</th>
+                                    <th>id</th>
+                                    <th> name</th>
+       
+                                    <th>booking date</th>
+                                    <th>state</th>
+                                </tr>
+                            </thead>
+                             <tbody>
+                                <t t-set="appointments" t-value="o.mapped('appointments')"/>
+                                    <tr t-foreach="appointments" t-as="appointments">
+                                       <td>
+                                            <span t-field="appointments.appointment_date"/>
+                                        </td>
+                                        <td >
+                                            <span t-field="appointments.appointment_id"/>
+                                        </td>
+                                        <td >
+                                            <span t-field="appointments.patient_id"/>
+                                        </td>
+              
+                                        <td>
+                                            <span t-field="appointments.booking_date"/>
+                                        </td> 
+                                        <td>
+                                            <span t-field="appointments.state"/>
+                                        </td> 
+                                    </tr>
+                                  
+                            </tbody>
+                        </table>
+                         <h2>
+                            <strong>total appoinetments : </strong>
+                             <span t-field="o.appointment_count_dector"/>
+                        </h2>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+  
+     </template>
+
+ 
+
+
+
+
+
+
+</data>
+</odoo>
+
+
+ 

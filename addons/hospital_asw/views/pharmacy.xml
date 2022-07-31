@@ -1,0 +1,68 @@
+<odoo>
+    <data>
+
+
+<!--        <record id="hospital_pharmacy_action" model="ir.actions.act_window">-->
+<!--            <field name="name">hospital.pharmacy.action</field>-->
+<!--            <field name="res_model">product.template</field>-->
+<!--            <field name="view_mode">kanban</field>-->
+<!--            <field name="context">{}</field>-->
+<!--            <field name="inherit_id" ref="product.product_template_kanban_view"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <p class="o_view_nocontent_smiling_face">&ndash;&gt;-->
+<!--                    create!-->
+<!--                </p>-->
+<!--            </field>-->
+<!--        </record>-->
+
+
+    <!-- ============== hospital_pharmacy_action_action  ============= -->
+<!--        <record model="ir.actions.act_window" id="hospital_pharmacy_action">-->
+<!--            <field name="name">hospital pharmacy window</field>-->
+<!--            <field name="type">ir.actions.act_window</field>-->
+<!--            <field name="res_model">product.template</field>-->
+<!--            <field name="view_mode">tree,form</field>-->
+<!--            <field name="context">{}</field>-->
+<!--            <field name="help" type="html">-->
+<!--                <p class="o_view_nocontent_smiling_face">-->
+<!--                    create!-->
+<!--                </p>-->
+<!--            </field>-->
+<!--        </record>-->
+
+
+
+
+
+
+<!--        -->
+<!--        <record model="ir.ui.view" id="product_form_view_sale_order_button">-->
+<!--            <field name="name">product.product.sale.order</field>-->
+<!--            <field name="model">product.product</field>-->
+<!--            <field name="inherit_id" ref="product.product_normal_form_view"/>-->
+<!--            <field name="groups_id" eval="[(4, ref('sales_team.group_sale_salesman'))]"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <div name="button_box" position="inside">-->
+<!--                    <button class="oe_stat_button" name="action_view_sales"-->
+<!--                        type="object" icon="fa-signal" groups="sales_team.group_sale_salesman" help="Sold in the last 365 days" attrs="{'invisible': [('sale_ok', '=', False)]}">-->
+<!--                        <div class="o_field_widget o_stat_info">-->
+<!--                            <span class="o_stat_value">-->
+<!--                                <field name="sales_count" widget="statinfo" nolabel="1" class="mr4"/>-->
+<!--                                <field name="uom_name"/>-->
+<!--                            </span>-->
+<!--                            <span class="o_stat_text">Sold</span>-->
+<!--                        </div>-->
+<!--                    </button>-->
+<!--                </div>-->
+<!--                <group name="description" position="after">-->
+<!--                    <group string="Warning when Selling this Product" groups="sale.group_warning_sale">-->
+<!--                        <field name="sale_line_warn" nolabel="1"/>-->
+<!--                        <field name="sale_line_warn_msg" colspan="3" nolabel="1"-->
+<!--                                attrs="{'required':[('sale_line_warn','!=','no-message')],'readonly':[('sale_line_warn','=','no-message')]}"/>-->
+<!--                    </group>-->
+<!--                </group>-->
+<!--            </field>-->
+<!--        </record>-->
+
+    </data>
+</odoo>

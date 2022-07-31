@@ -1,0 +1,83 @@
+<odoo>
+    <data>
+        <!-- "tree view" ============ doctor_tree -->
+        <record model="ir.ui.view" id="specialization_tree">
+            <field name="name">specialization list</field>
+            <field name="model">specialization</field>
+            <field name="arch" type="xml">
+                <tree sample="1">
+                    <field name="name"/>
+                    <field name="specialization"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--   "kanban view"  ============ doctor_kanban -->
+        <record id="hospital_specialization_view_kanban" model="ir.ui.view">
+            <field name="name">hospital.specialization.view.kanban</field>
+            <field name="model">specialization</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_mobile" sample="1">
+                    <field name="name"/>
+                    <field name="specialization"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div t-attf-class="oe_kanban_details">
+                                    <ul>
+                                        <li class="oe_title">
+                                            <h3>code :
+                                                <field name="name"/>
+
+                                            </h3>
+                                        </li>
+                                        <li>
+                                            specialization :
+                                            <field name="specialization"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+        <!-- "form view"  ============hospital_doctor_form_"view" -->
+        <record id="hospital_specialization_form_view" model="ir.ui.view">
+            <field name="name">hospital_specialization_form_view</field>
+            <field name="model">specialization</field>
+            <field name="arch" type="xml">
+                <form string="create doctor">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="specialization"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- ============== hospital_asw_partner_action  ============= -->
+        <record model="ir.actions.act_window" id="hospital_asw_specialization_action">
+            <field name="name">hospital specialization window</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">specialization</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    create your specialization !
+                </p>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

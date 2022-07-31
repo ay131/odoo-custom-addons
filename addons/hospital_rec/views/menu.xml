@@ -1,0 +1,25 @@
+<odoo>
+    <data>
+        <!--==================== [reception] menu =============================-->
+        <menuitem name="reception" id="reception_menu_root"/>
+        <!--==================== [reservation] menu =============================-->
+        <menuitem name="reservation" id="reservation" parent="reception_menu_root" action="hospital_rec_action"/>
+        <menuitem name="reservation" id="reservation" parent="reception_menu_root" action="hospital_rec_action"/>
+        <!--===================================================================-->
+        <!--==================== [appointments] menu =============================-->
+        <menuitem name="appointments" id="appointments" parent="reception_menu_root"/>
+        <menuitem name="appointments" id="appointments_pr" parent="appointments" action="hospital_appointment_action"/>
+        <menuitem name="create appointment" id="hospital_appointment_creation_wizard" parent="appointments"
+                  action="hospital_create_appointment_action"/>
+        <!--===================================================================-->
+        <!--==================== [doctors] menu =============================-->
+        <menuitem name="doctors" id="doctors" parent="reception_menu_root" action="hospital_asw_doctor_action"/>
+        <!--===================================================================-->
+        <!--==================== [patients] menu =============================-->
+        <menuitem name="patient" id="hospital_asw.patient" parent="reception_menu_root"
+                  action="hospital_asw_patient_action"/>
+        <!--===================================================================-->
+
+
+    </data>
+</odoo>

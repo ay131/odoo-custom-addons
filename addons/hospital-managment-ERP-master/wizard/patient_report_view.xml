@@ -1,0 +1,31 @@
+<odoo>
+<data>
+
+    <record id="report_patient_form_view" model="ir.ui.view">
+        <field name="name">report.patient.form.view</field>
+        <field name="model">patient.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="patient report">
+                <group>
+                    <field name="gender"/>
+                    <field name="age"/>
+                 </group>
+                <footer>
+                    <button name="patient_reports_action" string="print"  class="btn-primary" type="object" />
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="hospital_patients_report_action" model="ir.actions.act_window">
+        <field name="name">patients report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">patient.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="report_patient_form_view"/>
+        <field name="target">new</field>
+    </record>
+
+</data>
+</odoo>

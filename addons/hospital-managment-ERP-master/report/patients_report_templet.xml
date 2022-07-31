@@ -1,0 +1,74 @@
+<odoo>
+<data>
+    <template id="patients_report_detail">
+
+            <t t-call="web.html_container">
+
+                <t t-call="web.external_layout">
+                    <t t-foreac="kk" t-as="o">
+                    <span t-esc="kk" />
+<!--                                        <span t-esc="kk[0]" />-->
+
+<!--<t t-foreach="kk" t-as="o">-->
+                <div class="page">
+
+                    <h1>patient details report</h1>
+<!--                        <table class="table">-->
+<!--                            <thead>-->
+<!--                                <tr>-->
+<!--                                    <th>patient's details</th>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                    <th>id</th>-->
+<!--                                    <th>name</th>-->
+<!--                                    <th>age</th>-->
+<!--                                    <th>gender</th>-->
+<!--                                </tr>-->
+<!--                            </thead>-->
+
+<!--                     <tbody>-->
+<!--                                     <tr t-foreach="docs" t-as="patients">-->
+
+<!--                                        <td >-->
+<!--                                            <span t-field="patients.p_id"/>-->
+<!--                                        </td>-->
+<!--                                        <td>-->
+<!--                                            <span t-field="patients.name"/>-->
+<!--                                        </td>-->
+<!--                                        <td>-->
+<!--                                            <span t-field="patients.age"/>-->
+<!--                                        </td>-->
+<!--                                        <td>-->
+<!--                                            <span t-field="patients.gender"/>-->
+<!--                                        </td>-->
+<!--                                    </tr>-->
+
+
+<!--                            </tbody>-->
+<!--                        </table>-->
+<!--                    <t t-set="patients_new" t-value="o.filters_vals()" />-->
+<!--                        <table border="2">-->
+<!--                           Docs is : <span t-esc="docs" />-->
+<!--                            <t t-foreach="data.xml['docs']" t-as="patient">-->
+<!--&lt;!&ndash;                            <t t-foreach="patients_new" t-as="patient">&ndash;&gt;-->
+<!--                                <tr>-->
+<!--                                    <td>-->
+<!--                                        <span t-esc="patient.name" />-->
+<!--                                    </td>-->
+<!--                                </tr>-->
+<!--                            </t>-->
+<!--&lt;!&ndash;                            </t>&ndash;&gt;-->
+<!--                        </table>-->
+
+
+                    </div>
+
+</t>
+             </t>
+        </t>
+<!--        </t>-->
+
+     </template>
+ </data>
+</odoo>
+

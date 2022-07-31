@@ -1,0 +1,26 @@
+<odoo>
+    <data>
+<!-- 
+          <record  model="Cources.name" id='1'>
+            <field name="name">Cources 1</field>
+            <field name="description">Cources 1111</field>
+          </record>
+
+
+          <record  model="Cources.name" id='2'>
+            <field name="name">Cources 2</field>
+            <field name="description">Cources 2222</field>
+          </record>
+
+          <record  model="Cources.name" id='3'>
+            <field name="name">Cources 3</field>
+            <field name="description">Cources 3333</field>
+          </record>
+
+          <record  model="Cources.name" id='4'>
+            <field name="name">Cources 4</field>
+            <field name="description">Cources 4444</field>
+          </record> -->
+
+    </data>
+</odoo>

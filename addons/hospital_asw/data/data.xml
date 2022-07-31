@@ -1,0 +1,38 @@
+<odoo>
+    <data>
+
+<!--hospital asw patient id sequnce -->
+        <record id="seq_hospital_patient" model="ir.sequence">
+            <field name="name">patient sequence</field>
+            <field name="code">hospital.patient.sequence</field>
+            <field name="prefix">HP</field>
+            <field name="padding">3</field>
+        </record>
+
+
+
+<!--hospital asw doctor id sequnce -->
+        <record id="seq_hospital_doctor" model="ir.sequence">
+            <field name="name">doctor sequence</field>
+            <field name="code">hospital.asw.doctor</field>
+            <field name="prefix">DR</field>
+            <field name="padding">3</field>
+        </record>
+
+<!--specialization.sequence-->
+        <record id="seq_specialization" model="ir.sequence">
+            <field name="name">specialization sequence</field>
+            <field name="code">specialization.sequence</field>
+            <field name="prefix">SPE</field>
+            <field name="padding">3</field>
+        </record>
+
+<!--        hospital.appointment -->
+        <record id="seq_appointment" model="ir.sequence">
+            <field name="name">appointment sequence</field>
+            <field name="code">hospital.appointment</field>
+            <field name="prefix">APP</field>
+            <field name="padding">3</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,35 @@
+<odoo>
+    <data>
+        <!-- ==============[hospital]  main menu ============= -->
+        <menuitem name="hospital asw" id="hospital_asw.menu_root"/>
+        <!-- ============================================== -->
+
+        <!-- ============== [doctors] menu & catigories ============= -->
+        <menuitem name="doctors" id="hospital_asw.doctors" parent="hospital_asw.menu_root"
+                  action="hospital_asw_doctor_action"/>
+        <!-- ============================================== -->
+        <!-- ============== [patients] menu & catigories ============= -->
+        <menuitem name="patients" id="hospital_asw.patients" parent="hospital_asw.menu_root"
+                  action="hospital_asw_patient_action"/>
+        <!-- ============================================== -->
+        <!-- ============== [partners] menu & catigories ============= -->
+        <menuitem name="partners" id="hospital_asw.partner" parent="hospital_asw.menu_root"
+                  action="hospital_asw_partner_action"/>
+        <!-- ============================================== -->
+        <!-- ============== [specialization] menu & catigories ============= -->
+        <menuitem name="specialization" id="hospital_asw.specialization" parent="hospital_asw.menu_root"/>
+        <menuitem name="specializations" id="hospital_asw.specializations" parent="hospital_asw.specialization"
+                  action="hospital_asw_specialization_action"/>
+        <!-- ============================================== -->
+        <!-- ============== [appointment] menu & catigories ============= -->
+        <menuitem name="appointment" id="hospital_appointment" parent="hospital_asw.menu_root"
+                  action="hospital_appointment_action"/>
+        <menuitem name="create appointment" id="hospital_appointment_creation_wizard" parent="hospital_appointment"
+                  action="hospital_create_appointment_action"/>
+        <!-- ============================================== -->
+        <!-- ============== [pharmacy] menu & catigories ============= -->
+<!--        <menuitem name="pharmacy" id="hospital_pharmacy" parent="hospital_asw.menu_root"-->
+<!--                  action="hospital_pharmacy_action"/>-->
+        <!-- ============================================== -->
+    </data>
+</odoo>

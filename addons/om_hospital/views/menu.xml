@@ -1,0 +1,19 @@
+<odoo>
+
+  <!-- hospital menu -->
+  <menuitem name="hospital" id="hospital_menu" sequence="0" />
+        <menuitem name="patients" id="patient_details_menu" parent="hospital_menu"/>
+                  <menuitem name="patient" id="patient_menu" parent="patient_details_menu"  action="hospital_patient_action"/>
+                  <menuitem name="female patient" id="patient_female_menu" parent="patient_details_menu" action="female_hospital_patient_action"/>
+                  <menuitem name="achive patient" id="patient_archive_menu" parent="patient_details_menu" action="archive_hospital_patient_action"/>
+
+        <menuitem name="appointment" id="patient_appointment_menu" parent="hospital_menu" />
+                  <menuitem name="appointments" id="patient_appointments_menu" parent="patient_appointment_menu" action="hospital_appointment_action" />
+           
+
+        <menuitem name="hospital doctor"  id="hospital_doctor_menu" parent="hospital_menu"/>
+                  <menuitem name="doctor" id="patient_doctor_menu" parent="hospital_doctor_menu" action="hospital_doctor_action" />
+
+
+
+  </odoo>

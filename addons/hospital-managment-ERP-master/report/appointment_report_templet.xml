@@ -1,0 +1,147 @@
+
+
+<odoo>
+    <data>
+    <template id="appointment_report_detail">
+          <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                <div class="page">
+                        <div class="oe_structure">
+                            <div class="text-center">
+                                     <h2>appointment details </h2>
+                            </div>
+
+                         
+
+                        <table>
+                               
+                                
+                                    <tr>
+                                       <td>
+                                           patient
+                                        </td>
+                                        
+                                       <td>
+                                           : 
+                                        </td>
+                                        
+                                       <td>
+                                            <t t-if="form.get('patient_id')"> 
+                                                 <t t-esc="form['patient_id'][1]"/> 
+                                            </t>
+                                        </td>
+                                        
+                                         
+                                    </tr>                                
+                                    <tr>
+                                       <td>
+                                           date_from
+                                        </td>
+                                        
+                                       <td>
+                                           : 
+                                        </td>
+                                        
+                                       <td>
+                                            <t t-if="form.get('date_from')"> 
+                                                 <t t-esc="form['date_from']"/> 
+                                            </t>
+                                        </td>
+                                        
+                                         
+                                    </tr>                                
+                                    <tr>
+                                       <td>
+                                           date_to
+                                        </td>
+                                        
+                                       <td>
+                                           : 
+                                        </td>
+                                        
+                                       <td>
+                                            <t t-if="form.get('date_to')"> 
+                                                 <t t-esc="form['date_to']"/> 
+                                            </t>
+                                        </td>
+                                        
+                                         
+                                    </tr>
+ 
+                        </table>
+
+                             <table class="table text-center">
+                            <thead>
+            
+                                <tr>
+                                    <th>appointment date</th>
+                                    <th> name</th>
+                                    <th> age</th>
+                                    <th>appointment id</th>
+                                    <th> doctor</th>
+                                    <th> state </th>
+
+                               
+                                </tr>
+                            </thead>
+                             <tbody >
+
+                                <t t-set="appointment_count" t-value="0"/>
+                                    <t t-foreach="appointments" t-as="appointments">
+                                        <t t-set="appointment_count" t-value="appointment_count+1"/>
+                                        <tr>
+                                       <td>
+                                         <span t-esc="appointments['appointment_date']"/>
+                                        
+                                        </td> 
+                                        <td>
+                                             <span t-esc="appointments['patient_id'][1]"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="appointments['gender']"/>
+                                        </td>
+                                        <td>
+                                             <span t-esc="appointments['appointment_id']"/>
+                                           
+                                        </td>
+                                        <td>
+                                            <span t-esc="appointments['doctor_id'][1]"/>
+                                        </td>
+                                    
+                                        <td>
+                                            <span t-esc="appointments['state']"/>
+                                        </td>
+                                    
+                                    
+                                     </tr>
+                      
+                                            
+                                      
+                                    </t>
+                                  
+                            </tbody>
+        
+                        </table>
+
+
+
+                         <h2>
+                            <strong>total appoinetments : </strong>
+                             <span t-esc="appointment_count"/>
+                        </h2>
+
+
+                        </div>
+  
+                    </div>
+                </t>
+            </t>
+ 
+  
+    
+        </template>
+    </data>
+</odoo>
+
+
+ 

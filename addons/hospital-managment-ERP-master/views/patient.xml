@@ -1,0 +1,205 @@
+<odoo>
+  <data>
+   
+
+
+
+<!-- "tree view" ============ patient_tree -->
+    <record model="ir.ui.view" id="patient_tree">
+      <field name="name">patients list</field>
+      <field name="model">hospital.patient</field>
+      <field name="arch" type="xml">
+        <tree sample="1">
+          <field name="p_id" string="id"/>
+          <field name="name"/>
+          <field name="age"/>
+          <field name="gender"/>
+            <field name="company_id" readonly="1" />
+          <field name="appointments"/>
+        </tree>
+      </field>
+    </record>
+
+
+
+
+
+
+
+
+<!--   "kanban view"  ============ patient_kanban -->
+    <record id="hospital_patient_view_kanban" model="ir.ui.view">
+        <field name="name">hospital.patient.view.kanban</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile" sample="1">
+                <field name="p_id" string="id"/>
+                <field name="name"/>
+                <field name="age"/>
+                <field name="gender"/>
+                <field name="img" widget="image"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                          <div class="o_kanban_image mr-3">
+                                   <field name="img" widget="image" class="oe_avatar" />
+                           </div>
+                          <div t-attf-class="oe_kanban_details">
+                              <ul>
+                               <li class="oe_title"> 
+                                   <h3>patient id :<field name="p_id"/></h3> 
+                               </li>
+                               <li>
+                                   name :<field name="name"/>
+                               </li>
+                               
+                               <li>
+                                   age :<field name="age"/>
+                               </li>
+                               <li>
+                                   gender :<field name="gender"/>
+                               </li>
+                              </ul>
+                          </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+
+<!--"search view" =========== hospital_patient_appointment_search  and filtring  -->
+  <record id="hospital_patient_view_search" model="ir.ui.view">
+        <field name="name">hospital.patient.search</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <search>
+                  <field name="name" filter_domain="['|', ('name', 'ilike', self), ('p_id', 'ilike', self)]" />
+                  <field name="p_id"/>
+                  <filter name="filter_male" string="male" domain="[('gender', '=', 'male')]" />
+                  <filter name="filter_female" string="female" domain="[('gender', '=', 'female')]" />
+                  <filter name="filter_archive" string="archive" domain="[('active', '=', False)]" />
+              <group expand="0" string="Group By">
+                   <filter string="Gender" name="group_by_gender" context="{'group_by': 'gender'}"/>
+              </group>
+              <searchpanel>
+                   <field name="gender" string="Categories" enable_counters="1"  select="multi"  icon="fa-users"/>
+              </searchpanel>
+                        </search>
+
+
+        </field>
+    </record> 
+
+    <!-- "form view"  ============hospital_patient_form_"view" -->
+      <record id="hospital_patient_form_view" model="ir.ui.view">
+        <field name="name">hospital_patient_form_view</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+          <form string="create patient">
+            <sheet>
+            <field name="img" widget="image" class="oe_avatar"/>
+            <div class="oe_tile">
+            <h1><field name="p_id" string="patient id"/></h1>
+            </div>
+            
+                <group>
+                  <group>
+                      <field name="name"/>
+                      <field name="age"/>
+                      <field name="appointment_count"/>
+
+                  </group>
+
+                  <group>
+                      <field name="gender"/>
+                      <field name="brith_date"/>
+                      <field name="active" invisible="1"/>  
+                  </group>
+                </group>
+
+                <notebook>
+                      <page name="appoinetments list" string="appoinetments">
+                          <field name="appointments">
+                              <tree string="" edit="0" create="0" delete="0">
+                                <field name="appointment_id"/>
+                                <field name="patient_id" string="name"/>
+                                 <field name="appointment_date"/>
+                                <field name="booking_date" />
+                              </tree>
+                              <form string="">
+                                <sheet>
+                                  <group>
+                                      <field name="appointment_id" />
+                                      <field name="patient_id" string="name"/>
+                                      <field name="appointment_date"/>
+                                      <field name="booking_date" />
+                              </group>
+                                </sheet>
+                              </form>
+                          </field>
+                      </page>  
+                  </notebook>
+
+                  
+
+            </sheet>
+            <div class="oe_chatter">
+                <field name="message_follower_ids" groups="base.group_user"/>
+                <field name="activity_ids"/>
+                <field name="message_ids"/>
+            </div>
+          </form>
+        </field>
+      </record>
+ 
+
+<!-- ============== hospital action patient ============= -->
+  <!--  "action" hospital_patient_action -->
+    <record model="ir.actions.act_window" id="hospital_patient_action">
+    <field name="name">patients</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">hospital.patient</field>
+    <field name="view_mode">tree,kanban,form</field>
+    <field name="context">{'search_default_group_by_gender':1}</field>
+    <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+          create your first patient !
+        </p>
+    </field>
+    </record>
+
+  <!-- "action" female_hospital_patient_action -->
+    <record model="ir.actions.act_window" id="female_hospital_patient_action">
+    <field name="name">female patients</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">hospital.patient</field>
+    <field name="view_mode">tree,form</field>
+    <field name="context">{'default_gender':'female'}</field>
+    <field name="domain">[('gender', '=', 'female')]</field>
+    <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+          create your first patient !
+        </p>
+    </field>
+    </record>
+
+  <!--"action" archive_hospital_patient_action -->
+    <record model="ir.actions.act_window" id="archive_hospital_patient_action">
+    <field name="name">archive patients</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">hospital.patient</field>
+    <field name="view_mode">tree,form</field>
+    <field name="context">{}</field>
+    <field name="domain">[('active', '=', False)]</field>
+    <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+          create your first patient !
+        </p>
+    </field>
+    </record>
+
+  </data>
+</odoo>

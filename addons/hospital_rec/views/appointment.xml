@@ -1,0 +1,50 @@
+<odoo>
+    <data>
+        <!-- ============== hospital appointment action  ============= -->
+        <record model="ir.actions.act_window" id="hospital_appointment_action">
+            <field name="name">hospital appointment</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hospital.appointment</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    create your appoinment !
+                </p>
+            </field>
+        </record>
+        <!-- ============================================================= -->
+        <!-- ==============   wizard form view ============= -->
+        <record id="create_appoientment_form_view" model="ir.ui.view">
+            <field name="name">create.appoientment.form.view</field>
+            <field name="model">create.appointment.wizard</field>
+            <field name="arch" type="xml">
+                <form string="create new appointment">
+                    <group>
+                        <field name="appointment_date"/>
+                        <field name="doctor" widget="many2many_tags"/>
+                        <field name="is_available"/>
+                    </group>
+                    <footer>
+                        <button name="action_create_appointment" string="create appointment" class="btn-primary"
+                                type="object"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <!-- ============================================================= -->
+        <!-- ============== wizard action ============= -->
+        <record id="hospital_create_appointment_action" model="ir.actions.act_window">
+            <field name="name">create appointment</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">create.appointment.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="create_appoientment_form_view"/>
+            <field name="target">new</field>
+        </record>
+        <!-- ============================================================= -->
+
+
+    </data>
+</odoo>
